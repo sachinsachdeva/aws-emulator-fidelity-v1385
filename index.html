@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#ffffff">
-<meta name="data-app-snapshot-sha256" content="7742fbad4af9ef1f7a11ae5328275e678fcee49c5b079805e4c98b3ce6556dcc">
+<meta name="data-app-snapshot-sha256" content="a1be4e45b4bd6ff45f12a4eb50ed650f527aad99a8eef57d9908d3a7b0a4ce50">
 <meta name="data-app-chart-delivery" content="bundled">
 <meta name="data-app-runtime-sha256" content="916b94ce943116be361cec379e4d341661a4f1f18fee2be142cab27bacd2fa02">
 <meta name="data-app-bootstrap" content="deferred-content-v1">
@@ -33,7 +33,7 @@
 <div id="root" style="min-height:420px"><div data-data-status role="status">Loading dashboard…</div></div>
 <script type="application/json" id="data-app-reviewed-snapshot">{
   "id": "dashboard:ad5d6978-dd33-4906-b87b-525d06cef48a",
-  "title": "AWS Emulator fidelity \u00b7 v1.0.385",
+  "title": "AWS Emulator fidelity · v1.0.385",
   "surface": "dashboard",
   "status": "reviewed",
   "buildStatus": "complete",
@@ -2018,7 +2018,7 @@
           "behavioralFailed": 6,
           "behavioralSkipped": 0,
           "wirePassed": 0,
-          "wireF</script><script type="application/json" data-app-snapshot-chunk>ailed": 4,
+          "wireFaile</script><script type="application/json" data-app-snapshot-chunk>d": 4,
           "wireSkipped": 0,
           "passRate": 0,
           "behavioralRate": 0,
@@ -4036,7 +4036,7 @@
           "wirePassed": 10,
           "wireFailed": 1,
           "wireSkipped": 0,
-          "passRate"</script><script type="application/json" data-app-snapshot-chunk>: 0.9666666666666667,
+          "passRate": 0.</script><script type="application/json" data-app-snapshot-chunk>9666666666666667,
           "behavioralRate": 1,
           "wireRate": 0.9090909090909091
         },
@@ -6070,7 +6070,7 @@
           "wirePassed": 0,
           "wireFailed": 1,
           "wireSkipped": 0,
- </script><script type="application/json" data-app-snapshot-chunk>         "passRate": 0,
+     </script><script type="application/json" data-app-snapshot-chunk>     "passRate": 0,
           "behavioralRate": 0,
           "wireRate": 0
         },
@@ -6448,7 +6448,7 @@
           {
             "field": "passRate",
             "label": "Pass rate",
-            "definition": "Passed \u00f7 (passed + failed); skipped checks are excluded from the denominator."
+            "definition": "Passed ÷ (passed + failed); skipped checks are excluded from the denominator."
           },
           {
             "field": "testUnits",
@@ -6529,7 +6529,7 @@
           {
             "field": "passRate",
             "label": "Pass rate",
-            "definition": "Passed \u00f7 (passed + failed); skipped checks are excluded from the denominator."
+            "definition": "Passed ÷ (passed + failed); skipped checks are excluded from the denominator."
           },
           {
             "field": "testUnits",
@@ -6608,7 +6608,7 @@
           {
             "field": "passRate",
             "label": "Pass rate",
-            "definition": "Passed \u00f7 (passed + failed); skipped checks are excluded from the denominator."
+            "definition": "Passed ÷ (passed + failed); skipped checks are excluded from the denominator."
           },
           {
             "field": "testUnits",
@@ -7057,12 +7057,6 @@ function DashboardContent() {
   const summaryRows = reviewedRows("overall_summary");
   const kindRows = reviewedRows("kind_summary", ["kind"]);
   const summary = summaryRows[0];
-  const bottomServices = [...serviceRows]
-    .filter((row) => row.passRate != null)
-    .sort((a, b) => a.passRate - b.passRate || b.checks - a.checks)
-    .slice(0, 12)
-    .map((row) => ({ ...row, "Pass rate (%)": row.passRate * 100 }));
-
   if (!summary) return jsxRuntime.jsx('article', { className: "fidelity-dashboard", children: jsxRuntime.jsx('p', { children: "No score summary is available."    })});
 
   return jsxRuntime.jsxs('article', { className: "fidelity-dashboard", children: [
@@ -7093,20 +7087,6 @@ function DashboardContent() {
         sourceRows: kindRows, displayRows: kindRows, className: "fidelity-kind-table", children: 
         jsxRuntime.jsx(dataApp.DataTable, { rows: kindRows, columns: kindColumns, searchable: false, rowKey: "kind",} )
       })
-    ]})
-
-    , jsxRuntime.jsxs('section', { className: "fidelity-chart-section", 'aria-labelledby': "fidelity-lowest-heading", children: [
-      jsxRuntime.jsx('div', { className: "fidelity-section-heading", children: 
-        jsxRuntime.jsxs('div', { children: [
-          jsxRuntime.jsx('h2', { id: "fidelity-lowest-heading", children: "Lowest service pass rates"   })
-          , jsxRuntime.jsx('p', { children: "12 lowest rates among services with at least one passed or failed check."            })
-        ]})
-      })
-      , jsxRuntime.jsx(dataApp.EvidenceChart, { id: "fidelity-lowest-services", queryId: "service_scores", title: "Lowest service pass rates"   ,
-        description: "Pass rate is passed divided by passed plus failed; skipped checks are excluded. A service can have different behavioral and wire rates in the table below."                         ,
-        spec: { type: "horizontalBar", x: "service", y: "passRate", startAtZero: true, showXAxisLabel: false,
-          showYAxisLabel: false, colors: { "Pass rate (%)": "var(--chart-2)" } }, showHeading: false,
-        rows: bottomServices, sourceRows: serviceRows, height: 420, className: "fidelity-lowest-chart",} )
     ]})
 
     , jsxRuntime.jsxs('section', { className: "fidelity-service-section", 'aria-labelledby': "fidelity-service-heading", children: [

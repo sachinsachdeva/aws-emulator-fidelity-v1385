@@ -10,8 +10,7 @@ Open [`index.html`](index.html) in a modern browser. The file is self-contained 
 
 - Overall pass rate and scored test-unit totals
 - Behavioral and wire results at test-unit grain
-- The 12 AWS services with the lowest pass rates
-- A searchable, sortable table with service totals and separate behavioral and wire rates
+- A searchable, sortable service table with totals and separate behavioral and wire rates
 
 Pass rate is `passed / (passed + failed)`; skipped units are excluded. Overall totals count each scored unit once. In service breakdowns, each unit counts once for each AWS service identifier listed in its `services` field, so summed service totals can be greater than overall totals.
 
