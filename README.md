@@ -4,7 +4,9 @@ This standalone dashboard summarizes the supplied AWS Emulator score snapshot fo
 
 ## Open the dashboard
 
-Open [`index.html`](index.html) in a modern browser. The file is self-contained and does not load external libraries or make network requests.
+**Live dashboard:** [AWS Emulator fidelity · v1.0.385](https://sachinsachdeva.github.io/aws-emulator-fidelity-v1385/?view=1&tab=dashboard)
+
+To view it locally, open [`index.html`](index.html) in a modern browser. The file is self-contained and does not load external libraries or make network requests.
 
 ## What it shows
 
